@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Register</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <h2>Blogapp</h2>
+    </nav>
+    <div>
+        {% block content %}
+        <div style="border: 2px;height: 500px;margin-top: 10px;text-align: center;margin-top: 50px;">
+            <u>
+                <h1>Register</h1>
+            </u>
+            <form action="" class="site-form" method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                <div> {{field.label}}
+                    {{field}}
+                </div>
+                <br>
+                {% endfor %}
+                <br>
+                <input type="submit" value="Register">
+            </form>
+            <br>
+            <br>
+            <a href="{% url 'login' %}">Login..</a>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+
+</html>

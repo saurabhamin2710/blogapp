@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>User Page</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <h2>Blogapp</h2>
+
+        <span style="text-align: right;font-size: 20px;">Hello {{ request.user }}</span>
+        <span><a href="{% url 'logout' %}"> Logout</a> </span>
+
+    </nav>
+    <div class="row">
+        {% for card in cards %}
+        <div class="card" style="text-align:center;width: 40%; margin-left:28%;background-color: aliceblue;">
+            <h2 style="background-color: rgb(207, 250, 230);"><u><b>Title</b></u> : {{card.title}}</h2>
+            <h4>
+                <u><b>Description</b></u> : {{card.desc}}
+            </h4>
+            <h3 style="background-color: rgb(178, 238, 193);"><u><b>Auther</b></u> : {{card.author}}</h3>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+    <div style="font-size: x-large;text-align: center;color: black;background-color: antiquewhite;">
+        <a href="card">Add Cards</a>
+    </div>
+</body>
+
+</html>
